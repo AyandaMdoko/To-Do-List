@@ -8,13 +8,14 @@ body {
     align-items: center;
     background: url('pexels-thepaintedsquare-583848.jpg') no-repeat center center fixed;
     background-size: cover;
+    font-family: 'Times New Roman', Times, serif;
 }
 .container {
     background: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: min(600px, calc(100% - 40px));
+    width: min(770px, calc(100% - 40px));
 }
 
 h1 {
