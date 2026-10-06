@@ -10,7 +10,24 @@
     <div class="container">
         <h1>To-Do List</h1>
         <form id="addTaskForm">
-            <input type="text" id="taskInput" placeholder="Add new task" required>
+            <label class="field task-field" for="taskInput">Task
+                <input type="text" id="taskInput" placeholder="Add new task" required>
+            </label>
+            <label class="field" for="dueDate">Due date
+                <input type="date" id="dueDate" required>
+            </label>
+            <label class="field" for="dueTime">Due time
+                <input type="time" id="dueTime" required>
+            </label>
+            <label class="field priority-field" for="taskPriority">Urgency
+                <select id="taskPriority" required>
+                    <option value="" selected disabled>Choose urgency</option>
+                    <option value="urgent">Urgent — time-sensitive</option>
+                    <option value="high">High — important</option>
+                    <option value="normal">Normal — daily goal</option>
+                    <option value="low">Low — flexible</option>
+                </select>
+            </label>
             <button type="submit">Add Task</button>
         </form>
         <ul id="taskList"></ul>

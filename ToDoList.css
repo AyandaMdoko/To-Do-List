@@ -14,7 +14,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 600px;
+    width: min(600px, calc(100% - 40px));
 }
 
 h1 {
@@ -24,16 +24,34 @@ h1 {
 
 form {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 10px;
     margin-bottom: 20px;
 }
 
-input[type="text"] {
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: #444;
+    font-size: 14px;
+    flex: 0 1 150px;
+}
+
+.task-field {
+    flex: 1 1 180px;
+}
+
+input,
+select {
+    box-sizing: border-box;
+    width: 100%;
     flex: 1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-right: 10px;
+    font: inherit;
 }
 
 button {
@@ -62,6 +80,87 @@ li {
     border-radius: 5px;
     margin-bottom: 10px;
     align-items: center;
+}
+
+.task-details {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.task-deadline {
+    color: #555;
+    font-size: 0.85rem;
+    text-decoration: none;
+}
+
+.task-priority {
+    align-self: flex-start;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.priority-urgent {
+    background: #fde2e2;
+    color: #a51616;
+}
+
+.priority-high {
+    background: #fff0d6;
+    color: #8a4b00;
+}
+
+.priority-normal {
+    background: #e3f0ff;
+    color: #155a9c;
+}
+
+.priority-low {
+    background: #e6f4e8;
+    color: #276738;
+}
+
+.task-actions {
+    display: flex;
+    flex-shrink: 0;
+}
+
+@media (max-width: 620px) {
+    body {
+        height: auto;
+        min-height: 100vh;
+        box-sizing: border-box;
+        padding: 20px 0;
+    }
+
+    form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .field,
+    .task-field {
+        flex: auto;
+    }
+
+    form button {
+        align-self: flex-start;
+    }
+
+    li {
+        align-items: flex-start;
+        gap: 10px;
+        flex-direction: column;
+    }
+
+    .task-actions {
+        margin-left: -10px;
+    }
 }
 
 li.completed {
